@@ -1,0 +1,31 @@
+Практическое задание по теме “Управление БД”
+1.	Установите СУБД MySQL. Создайте в домашней директории файл .my.cnf, задав в нем логин и пароль, который указывался при установке.
+Создать через блокнот, изменить имя файла и расширение на my.cnf, заменить содержимое файла на:
+[mysql]
+user=root
+password=*******
+
+/* 
+сохранить как my.cnf  в папке windows
+проверяем вход через командную строку
+*/
+2.	Создайте базу данных example, разместите в ней таблицу users, состоящую из двух столбцов, числового id и строкового name.
+В DBeaver создаем запрос, либо через командную строку выполняем построчно (в этом случае первой строкой будет вход: mysql -u root -p)
+
+CREATE DATABASE example;
+USE example;
+CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(255) COMMENT 'Имя пользователя');
+
+3.	Создайте дамп базы данных example из предыдущего задания, разверните содержимое дампа в новую базу данных sample.
+
+Через командную строку выполняем следующие команды построчно:
+
+mysqldump -u root -p example > example.sql
+mysql -u root -p 
+CREATE DATABASE sample;
+exit
+mysql -u root -p sample < example.sql  
+mysql -u root –p
+USE sample;
+SHOW TABLES;
+exit
